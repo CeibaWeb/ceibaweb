@@ -1,0 +1,13 @@
+<header id="header" itemscope itemtype="http://schema.org/WPHeader" style="background-image: url('{{ theme:images src="overlay.png"}}'), url('{{ theme:images src="bg.jpg" }}');">
+    <div class="inner" itemscope itemtype="http://schema.org/Organization">
+        <a itemprop="logo" href="/" class="image avatar"><img src="{{ theme:images src="ceiba_logo_black.png" }}" alt="" /></a>
+        <h1 itemprop="name"><strong>Ceiba Web Development</strong></h1>
+        <h5>Exploring Our Digital Roots</h5>
+        <br />
+        <ul style="list-style: none">
+            {{ nav from="/" }}
+            <li style=><a href="{{ url }}" style="text-decoration: none;">{{ title }}</a></li>
+            {{ /nav }}
+        </ul>
+    </div>
+</header>

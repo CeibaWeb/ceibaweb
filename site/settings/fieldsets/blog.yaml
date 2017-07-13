@@ -1,0 +1,14 @@
+taxonomies: false
+title: Blog
+create_title: ""
+fields:
+  content:
+    type: markdown
+    display: Content
+  featured_image:
+    type: assets
+    display: Featured Image
+    container: main
+    folder: /
+    max_files: 1
+    width: 50

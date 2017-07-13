@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html>
+<head>
+    <title>Ceiba Web Development</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ theme:css }}" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{ theme:css }}" /><![endif]-->
+    <script src="https://use.typekit.net/tsv5tjb.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+</head>
+<body id="top">
+
+{{ partial src="layout/header" }}
+
+    <main id="main">
+        {{ template_content }}
+    </main>
+
+    {{ partial src="layout/footer" }}
+
+    {{ theme:js src="jquery.min" tag="true" }}
+    {{ theme:js src="jquery.poptrox.min" tag="true" }}
+    {{ theme:js src="skel.min" tag="true" }}
+    {{ theme:js tag="true" }}
+
+</body>
+</html>

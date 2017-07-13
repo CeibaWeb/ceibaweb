@@ -1,0 +1,6 @@
+routes: [ ]
+collections:
+  blog: '/{slug}'
+taxonomies: [ ]
+redirect: [ ]
+vanity: [ ]

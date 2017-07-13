@@ -1,0 +1,6 @@
+{{ collection:blog as="blog" }}
+    {{ blog as="entry" }}
+        {{ partial src="layout/single" :content="entry" }}
+    {{ /blog }}
+{{ /collection:blog }}
+

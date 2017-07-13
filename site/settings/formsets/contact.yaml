@@ -1,0 +1,8 @@
+title: Contact
+fields:
+  name:
+    display: Name
+  email:
+    display: Email
+  message:
+    display: Message

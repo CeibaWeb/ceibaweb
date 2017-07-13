@@ -1,0 +1,60 @@
+.hero-slider {
+  display: flex;
+  flex-direction: row;
+
+  .hero-image-wrap {
+    padding: 0;
+    position: relative;
+    width: 60%;
+
+    figure {
+      background-size: cover;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+
+      a {
+        height: 100%;
+        width: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-position: bottom right;
+        }
+      }
+
+    }
+  }
+
+  .titles-column {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  .hero-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 4rem;
+    align-items: center;
+    background: black;
+
+    a {
+      width: 100%;
+      text-align: center;
+
+      h3 {
+        color: white;
+      }
+    }
+
+    .hero-card-text {
+      padding: 1rem 0;
+      color: white;
+    }
+  }
+}
