@@ -116,7 +116,12 @@ function cp_route($route, $params = [])
 
 function cp_resource_url($url)
 {
-    return URL::assemble(SITE_ROOT, pathinfo(request()->getScriptName())['basename'], RESOURCES_ROUTE, 'cp', $url);
+    return resource_url('cp/' . $url);
+}
+
+function resource_url($url)
+{
+    return URL::assemble(SITE_ROOT, pathinfo(request()->getScriptName())['basename'], RESOURCES_ROUTE, $url);
 }
 
 function path($from, $extra = null)
@@ -207,27 +212,11 @@ function carbon($value)
 }
 
 /**
- * @return \Statamic\Repositories\AddonRepository
- */
-function addon_repo()
-{
-    return app('Statamic\Repositories\AddonRepository');
-}
-
-/**
  * @return \Statamic\DataStore
  */
 function datastore()
 {
     return app('Statamic\DataStore');
-}
-
-/**
- * @return \Statamic\Extend\Management\Loader
- */
-function resource_loader()
-{
-    return app('Statamic\Extend\Management\Loader');
 }
 
 /**
@@ -328,24 +317,6 @@ function nav()
 }
 
 /**
- * Instantiate a custom collection filter instance
- *
- * @param string                        $plugin_name
- * @param \Statamic\Data\DataCollection $collection
- * @param array                         $context
- * @param array                         $params
- * @return \Statamic\Extend\FilterInterface
- */
-function collection_filter($plugin_name, DataCollection $collection, $context = [], $params = [])
-{
-    $class = Str::studly($plugin_name);
-
-    $class = "Statamic\\Addons\\{$class}\\{$class}Filter";
-
-    return new $class($collection, $context, $params);
-}
-
-/**
  * Convert a width to a bootstrap column class
  *
  * @param int $width Percentage as a width
@@ -431,7 +402,13 @@ function format_url($url)
  */
 function markdown($content)
 {
-    return MarkdownExtra::defaultTransform($content);
+    $parser = new MarkdownExtra;
+
+    if (Config::get('theming.markdown_hard_wrap')) {
+        $parser->hard_wrap = true;
+    }
+
+    return $parser->transform($content);
 }
 
 /**
@@ -589,7 +566,7 @@ function refreshing_addons()
  */
 function cp_middleware()
 {
-    return ['enforce-default-cp-locale', 'set-cp-locale', 'outpost'];
+    return ['cp-enabled', 'enforce-default-cp-locale', 'set-cp-locale', 'outpost'];
 }
 
 /**
@@ -653,5 +630,20 @@ if (! function_exists('array_filter_use_both')) {
         }
 
         return $items;
+    }
+}
+
+if (! function_exists('tap')) {
+    /**
+     * Call the given Closure with the given value then return the value.
+     *
+     * @param  mixed  $value
+     * @param  callable  $callback
+     * @return mixed
+     */
+    function tap($value, $callback)
+    {
+        $callback($value);
+        return $value;
     }
 }

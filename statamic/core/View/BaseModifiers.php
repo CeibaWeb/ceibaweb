@@ -93,6 +93,21 @@ class BaseModifiers extends Modifier
     }
 
     /**
+     * Returns a focal point as a background-position CSS value.
+     *
+     * @param $value
+     * @return string
+     */
+    public function backgroundPosition($value)
+    {
+        if (! Str::contains($value, '-')) {
+            return $value;
+        }
+
+        return vsprintf('%d%% %d%%', explode('-', $value));
+    }
+
+    /**
      * Removes a given number ($param[0]) of characters from the end of a variable
      *
      * @param $value
@@ -2000,9 +2015,17 @@ class BaseModifiers extends Modifier
      */
     public function wrap($value, $params)
     {
+        $attributes = '';
         $tag = array_get($params, 0);
 
-        return "<$tag>$value</$tag>";
+        // Emmet-esque classes
+        // You may specify "tag.class.class.class" etc.
+        if (Str::contains($tag, '.')) {
+            list($tag, $classes) = explode('.', $tag, 2);
+            $attributes = sprintf(' class="%s"', str_replace('.', ' ', $classes));
+        }
+
+        return "<{$tag}{$attributes}>$value</$tag>";
     }
 
     /**

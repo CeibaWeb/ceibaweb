@@ -6,7 +6,8 @@ export default {
         'folder',
         'subfolders',
         'loading',
-        'selectedAssets'
+        'selectedAssets',
+        'restrictNavigation'
     ],
 
 
@@ -63,6 +64,10 @@ export default {
         deleteAsset(id) {
             this.$emit('asset-deselected', id);
             this.$emit('asset-deleting', id);
+        },
+
+        assetDoubleclicked(id) {
+            this.$emit('asset-doubleclicked');
         },
 
         /**

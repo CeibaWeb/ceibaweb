@@ -5,6 +5,7 @@ namespace Statamic\Http\Controllers;
 use Illuminate\Http\Request;
 use Statamic\API\Taxonomy;
 use Statamic\API\Term;
+use Statamic\API\Fieldset;
 use Stringy\StaticStringy as Stringy;
 
 class PublishTaxonomyController extends PublishController
@@ -33,7 +34,7 @@ class PublishTaxonomyController extends PublishController
         );
 
         $extra = [
-            'group' => $group_name,
+            'taxonomy' => $group_name,
             'route' => $group->route()
         ];
 
@@ -51,7 +52,8 @@ class PublishTaxonomyController extends PublishController
             'status'            => true,
             'locale'            => default_locale(),
             'is_default_locale' => true,
-            'locales'           => $this->getLocales()
+            'locales'           => $this->getLocales(),
+            'suggestions'       => $this->getSuggestions(Fieldset::get($fieldset)),
         ]);
     }
 
@@ -103,7 +105,8 @@ class PublishTaxonomyController extends PublishController
             'status'            => $status,
             'locale'            => $locale,
             'is_default_locale' => $term->isDefaultLocale(),
-            'locales'           => $this->getLocales($id)
+            'locales'           => $this->getLocales($id),
+            'suggestions'       => $this->getSuggestions($term->fieldset()),
         ]);
     }
 
@@ -124,5 +127,20 @@ class PublishTaxonomyController extends PublishController
             'group' => $term->taxonomyName(),
             'slug'  => $term->slug(),
         ]);
+    }
+
+    /**
+     * Whether the user is authorized to publish the object.
+     *
+     * @param Request $request
+     * @return bool
+     */
+    protected function canPublish(Request $request)
+    {
+        $taxonomy = $request->input('extra.taxonomy');
+
+        return $request->user()->can(
+            $request->new ? "taxonomies:$taxonomy:create" : "taxonomies:$taxonomy:edit"
+        );
     }
 }

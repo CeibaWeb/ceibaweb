@@ -1,4 +1,5 @@
-taxonomies: false
+taxonomies:
+  categories: true
 title: Blog
 create_title: ""
 fields:

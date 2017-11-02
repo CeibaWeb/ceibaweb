@@ -5,8 +5,8 @@ return [
     // General CP
     'dashboard' => 'Dashboard',
     'nav_dashboard' => 'Dashboard',
-    'sneak_peek' => 'Sneak Peek',
-    'sneak_peeking' => 'Sneaking a Peek',
+    'sneak_peek' => 'Live Preview',
+    'sneak_peeking' => 'Live Preview',
     'view_site' => 'View Site',
     'visit_url' => 'Visit URL',
     'search_for_anything' => 'Search for anything',
@@ -21,8 +21,6 @@ return [
     'editing_page' => 'Editing Page',
     'page_updated' => 'Page Updated',
     'home' => 'Home',
-    'pages_empty_heading' => 'Site Pages',
-    'pages_empty' => 'Pages are used to create the various sections and URL structures of your site, as well as manage their respective content.',
     'show_urls' => 'Show URLs',
     'show_titles' => 'Show Titles',
     'choose_page_type' => 'Choose Page Type',
@@ -81,7 +79,9 @@ return [
     // Globals
     'globals' => 'Global|Globals',
     'nav_globals' => 'Globals',
+    'global_sets' => 'Global Sets',
     'manage_global_sets' => 'Manage Global Sets',
+    'configuring_global_set' => 'Configuring Global Set',
     'create_global_set_button' => 'Create Global Set',
     'create_global_set' => 'Create New Global Set',
     'global_set_created' => ':type created',
@@ -170,22 +170,30 @@ return [
     // Users
     'users' => 'User|Users',
     'nav_users' => 'Users',
+    'manage_users' => 'Manage Users',
     'create_user_button' => 'Create User',
     'create_user' => 'Create User',
     'create_a_user' => 'Create a User',
     'user_created' => 'User created',
     'editing_user' => 'Editing User',
     'user_updated' => 'User updated',
+    'reset_password' => 'Reset your password',
+    'send_email' => 'Send email',
     'send_activation_email' => 'Send activation email',
     'send_password_reset_email' => 'Send password reset email',
     'copy_activation_link' => 'Copy activation link',
     'copy_password_reset_link' => 'Copy password reset link',
+    'password_reset_sent' => 'Password reset email sent',
     'account' => 'Account',
     'my_account' => 'My Account',
+    'profile' => 'Profile',
     'logout' => 'Logout',
+    'sign_out' => 'Sign out',
     'user_options' => 'User Options',
     'user_bio_instructions' => 'A little bit about you, if you like.',
     'user_account_created' => 'A user account has been created.',
+    'forgot_password' => 'Forgot password?',
+    'go_back' => 'Go Back',
 
     // Password Reset
     'reset_code_missing' => 'No code specified.',
@@ -210,11 +218,11 @@ return [
     'folders_unwritable' => 'The following directories need to be writable:',
 
     // Error Pages
+    'error' => 'Error',
     'permission_denied' => 'Permission Denied',
     'permission_denied_instructions' => "You don't have permission to view this page.",
     'page_not_found' => 'Page not found',
     'page_not_found_instructions' => 'The page you requested does not exist.',
-    'learn_more_about_trial_mode' => 'Learn more about trial mode.',
     'session_expired' => 'Your session has expired.',
 
 
@@ -248,6 +256,7 @@ return [
 
     // Addons
     'addons' => 'Addon|Addons',
+    'manage_addons' => 'Manage Addons',
     'nav_addons' => 'Addons',
     'addons_empty_heading' => 'There are no addons',
     'addons_empty' => 'Addons extend the functionality of Statamic.',
@@ -290,7 +299,6 @@ return [
     'edit_field' => 'Edit Field',
     'choose_field_to_edit' => "Choose a field to edit its settings.",
 
-
     // Forms
     'form' => 'Form',
     'forms' => 'Form|Forms',
@@ -307,6 +315,8 @@ return [
     'creating_formset' => 'Creating Formset',
     'editing_formset' => 'Editing Formset',
     'import' => 'Import',
+    'import_data' => 'Import Data',
+    'import_link_text' => 'Learn about the import JSON format',
     'export' => 'Export',
     'export_csv' => 'Export as CSV',
     'export_json' => 'Export as JSON',
@@ -324,6 +334,7 @@ return [
     // Updater
     'nav_updater' => 'Updater',
     'updates'     => 'Updates',
+    'system_updates' => 'System Updates',
     'upgrade_to_latest' => 'Upgrade to Latest',
     'upgrade_to_version' => 'Upgrade to :version',
     'downgrade_to_version' => 'Downgrade to :version',
@@ -369,7 +380,7 @@ return [
 
     // Swap Release
     'swapping_files' => 'Swapping files...',
-    'swapping_files_instructions' => 'Your smelly old Statamic files are being swapped for sparkly clean new ones.',
+    'swapping_files_instructions' => 'Statamic is being injected with software growth hormone (SGH). Results will be visible mere moments.',
     'files_swapped' => 'Files swapped.',
 
     // Clean Up
@@ -417,8 +428,8 @@ return [
     'show_keyboard_shortcuts' => 'Show Keyboard Shortcuts',
 
     // License
-    'license_unauthorized' => 'This license belongs to another domain. Visit <a href=":url" target="_blank">your account</a> to change it.',
-    'license_missing' => 'You are on a public domain without a license. Please <a href=":url">add your license key</a>.',
+    'license_wrong_domain' => 'This license belongs to :domain. Visit <a href=":url" target="_blank">your account</a> to change it.',
+    'license_no_domain' => 'This license has no domain associated with it. Visit <a href=":url" target="_blank">your account</a> to change it.',
     'checking_license_key' => 'Checking your license key, please wait...',
     'license_valid' => 'You have a valid license key.',
     'license_invalid' => 'This key is invalid.',
@@ -426,6 +437,11 @@ return [
     'enter_license_key' => 'Please enter your license key to access to the control panel on a public domain.',
 
     'continue_in_trial_mode' => 'Continue in Trial Mode',
+    'unlicensed' => 'Unlicensed',
+    'on_trial_with_invalid_license' => 'You are currently on trial mode, but your license is invalid.',
+    'on_trial_without_license' => 'You are currently on trial mode. Remember to add a license key before you move to a public domain.',
+    'invalid_statamic_license' => 'Your Statamic license is invalid.',
+    'couldnt_connect_to_outpost' => 'There was a problem communicating with the Statamic Outpost.',
 
     // Verbs and helpers
     'actions' => 'Action|Actions',
@@ -460,6 +476,7 @@ return [
     'save_order' => 'Save Order',
     'toggle_dropdown' => 'Toggle Dropdown',
     'confirm_delete_items' => 'This item will be deleted|The selected items will be deleted',
+    'confirm_delete_page' => 'This page will be deleted along with all its children',
     'confirm_delete_folder' => 'This folder will be deleted',
     'configure' => 'Configure',
     'browse' => 'Browse',
@@ -483,6 +500,7 @@ return [
     'expand_all' => 'Expand All',
     'please_select' => 'Please select',
     'selected' => 'selected',
+    'add_another_item' => 'Add another item',
 
     // Nouns and whatnot
     'fields' => 'Field|Fields',
@@ -537,6 +555,8 @@ return [
     'authors' => 'Author|Authors',
     'installer' => 'Installer',
     'search' => 'Search',
+    'search_results' => 'Search Results',
+    'no_search_results' => 'No Search Results',
     'instructions' => 'Instructions',
     'handle' => 'Handle',
     'label' => 'Label',
@@ -571,14 +591,19 @@ return [
     'nav_fieldsets' => 'Fieldsets',
     'nav_settings' => 'Settings',
     'nav_users' => 'Users',
+    'nav_resolve_duplicate_ids' => 'Duplicate IDs',
 
     'mount_collection' => 'Mount Collection',
     'unmount_collection' => 'Unmount Collection',
 
     'trial_mode' => 'Trial Mode',
-    'trial_mode_badge' => 'FREE TRIAL',
-    'trial_mode_explanation' => "Please enter your license key to unlock Statamic's full potential and run on a public domain.",
+    'trial_mode_badge' => "You are running Statamic in free trial mode.",
 
     // Validation
     'handle_exists' => 'A container with this handle already exists.',
+
+    // Duplicate ID Manager
+    'duplicate_id_title' => 'Duplicate IDs',
+    'no_duplicate_ids' => 'No duplicate IDs detected.'
+
 ];

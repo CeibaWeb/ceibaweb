@@ -1,0 +1,11 @@
+taxonomies: false
+title: Category
+create_title: Add Category
+fields:
+  color:
+    type: text
+    display: Color
+    instructions: Current possible colors are blue, green, orange, salmon
+  description:
+    type: textarea
+    display: Description
