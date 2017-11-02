@@ -25,45 +25,51 @@ new Vue({
         toggleHover: function(event) {
             const links = event.target.querySelectorAll('a');
 
-            links.forEach(this.addClasses);
+            links.forEach(this.saveClasses);
         },
 
         leave: function(event) {
            const links = event.target.querySelectorAll('a');
            
            links.forEach(this.removeClasses)
+
+           this.poppedClasses = [];
         }, 
 
-        addClass: function(str) 
-        { 
-            if (str.includes('text')) {
-                this.poppedClasses.push(str);
-            } 
+        saveClasses: function(link) {
+            const href = link.href,
+            classList = link.classList;
+            //console.log(classList);
+
+            for (let rule of classList) {
+                if (rule.includes('text')) {
+                    classList.remove(rule)
+                    this.poppedClasses.push({
+                        [href]: rule
+                    });
+                }
+            }
+
+            classList.add('text-white');
         },
 
         addClasses: function(link) {
-            const href = link.href
-            const list = link.classList
-            
-            list.forEach(this.addClass);
-
-
-            list.add('text-white');
-            this.poppedClasses.forEach(function(text) {
-                list.remove(text);
-            });
+            this.saveClasses(link);
         },
 
         removeClasses: function(link) {
            const list = link.classList;
 
            list.remove('text-white');
+           for (let poppedClass of this.poppedClasses) {
+               if (poppedClass.hasOwnProperty(link.href)) {
+                   console.log(link.href);
+                   list.add(poppedClass[link.href]);
+               }
+           }
 
-           this.poppedClasses.forEach(function(val) {
-               list.add(val);
-           });
+           //console.log(list);
 
-           this.poppedClasses = [];
         }
     },
     created: function() {
