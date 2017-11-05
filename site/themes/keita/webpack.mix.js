@@ -4,6 +4,6 @@ const tailwindcss = require('tailwindcss');
 mix.sass('src/scss/keita.scss', 'css')
     .options({
         postCss: [
-            tailwindcss('./tailwind.js')
+            tailwindcss('tailwind.js')
         ]
     });

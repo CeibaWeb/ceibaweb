@@ -1,0 +1,32 @@
+<div class="sticky-0 w-full flex flex-wrap flex-col h-screen">
+    {{ if collection }}
+        {{ collection as="posts" sort="date:desc" limit="2" :from="collection" :title:isnt="page:title" }}
+            <div class="sidebar-posts flex-col flex flex-wrap flex-auto pt-3">
+                <h3 class="text-xl text-right flex-none text-heading text-blue-dark">Recent Posts</h3>
+                {{ posts }}
+                    {{ partial src="components/sidebar-card" }}
+                {{ /posts }}
+            </div>
+        {{ /collection }}
+    {{ /if }}
+    {{ if categories }}
+        {{ categories }}
+            {{ collection as="posts" :from="collection" :taxonomy:categories="title" limit="2" }}
+                <div class="categories-posts flex flex-col flex-wrap pt-3 flex-auto">
+                    <h3 class="text-xl text-right text-heading text-{{ partial:color }}">More from {{ title }}</h3>
+                    {{ posts }}
+                        {{ partial src="components/sidebar-card" }}
+                    {{ /posts }}
+                </div>
+            {{ /collection }}
+        {{ /categories }}
+    {{ /if }}
+</div>
+
+{{# {{ categories }}
+    {{ if first }}
+        {{ taxonomy:categories :title:isnt="title" }}
+            <a href="{{ url }}">{{ title }}</a>
+        {{ /taxonomy:categories }}
+    {{ /if }}
+{{ /categories }} #}}

@@ -1,9 +1,9 @@
-<nav style="height: 10%" class="w-full leading-loose flex flex-wrap flex-no-grow">
+<nav style="height: 7%" class="w-full leading-loose flex flex-wrap mb-2">
     {{ taxonomy:categories }}
-        <a class="flex-1 flex no-underline" href="{{ url }}">
-            <span class="flex pin align-center justify-center bg-{{ color }}-light hover:bg-{{ color }}">
-                <span class="py-4 tk-paralucent tracking-wide text-white text-xl">{{ title }}</span>
-            </span>
+        <a class="flex-1 flex no-underline" tabindex="0" href="{{ url }}">
+            <div class="w-full bg-{{ color }}-light hover:bg-{{ color }} shadow-inner flex justify-center items-center">
+                <span class="py-1 tk-paralucent tracking-wide text-white text-xl">{{ title }}</span>
+            </div>
         </a>
     {{ /taxonomy:categories }} 
 </nav>

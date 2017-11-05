@@ -1,8 +1,8 @@
-<div class="bg-cover h-fi" style="height: 55%; background-position: center center; background-image: url('https://i1.wp.com/www.spencerboegeman.com/wp-content/uploads/2016/08/Golden-Souvenance-Sep.-2013.jpg'); content:"""></div>
-<section id="featured-posts-bar" style="height: 25%;"class="flex flex-row">
+<div class="bg-cover bg-center h-fi" style="height: 60%; background-image: url('https://i1.wp.com/www.spencerboegeman.com/wp-content/uploads/2016/08/Golden-Souvenance-Sep.-2013.jpg');"></div>
+<section id="featured-posts-bar" style="height: 15%;"class="flex flex-row bg-fade-white">
     {{ collection:blog limit="4" }}
         <div class="h-auto w-1/3 flex flex-column items-center hover:bg-{{ partial:color }}" @mouseenter="toggleHover" @mouseleave="leave">
-            <div class="flex flex-column flex-wrap justify-center pl-4 ml-2 border-l-2 border-{{ partial:color }}">
+            <div class="flex flex-column flex-wrap justify-center pl-3 ml-2 border-l-2 border-{{ partial:color }}">
                 {{ categories }}
                     {{ if first }}
                         <span class="w-full text-xs font-light tk-paralucent uppercase"><a class="no-underline text-{{color}}" href="{{ url }}">{{ title }}</a></span>
@@ -14,6 +14,7 @@
         </div>
     {{ /collection:blog }}  
 </section>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script>
 <script>
 new Vue({
@@ -53,23 +54,15 @@ new Vue({
             classList.add('text-white');
         },
 
-        addClasses: function(link) {
-            this.saveClasses(link);
-        },
-
         removeClasses: function(link) {
            const list = link.classList;
 
            list.remove('text-white');
            for (let poppedClass of this.poppedClasses) {
                if (poppedClass.hasOwnProperty(link.href)) {
-                   console.log(link.href);
                    list.add(poppedClass[link.href]);
                }
            }
-
-           //console.log(list);
-
         }
     },
     created: function() {

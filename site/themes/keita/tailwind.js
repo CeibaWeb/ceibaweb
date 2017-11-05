@@ -68,6 +68,7 @@ var colors = {
   'orange-darker': '#7f4012',
   'orange-dark': '#de751f',
   'orange': '#f6993f',
+  //'orange': '#f9a03f',
   'orange-light': '#faad63',
   'orange-lighter': '#fcd9b6',
   'orange-lightest': '#fff5eb',
@@ -192,7 +193,32 @@ module.exports = {
 
   fonts: {
     'sans': [
-      'aniuk',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      'Segoe UI',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      'Fira Sans',
+      'Droid Sans',
+      'Helvetica Neue',
+    ],
+    'body': [
+      'paralucent-text',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      'Segoe UI',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      'Fira Sans',
+      'Droid Sans',
+      'Helvetica Neue',
+    ],
+    'heading': [
+      'paralucent',
       '-apple-system',
       'BlinkMacSystemFont',
       'Segoe UI',
@@ -205,7 +231,6 @@ module.exports = {
       'Helvetica Neue',
     ],
     'serif': [
-      'aniuk',
       'Constantia',
       'Lucida Bright',
       'Lucidabright',
@@ -506,7 +531,8 @@ module.exports = {
     '48': '12rem',
     '64': '16rem',
     'full': '100%',
-    'screen': '100vh'
+    'screen': '100vh',
+    'half': '50vh',
   },
 
 

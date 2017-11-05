@@ -17,7 +17,7 @@
 </head>
 
 
-<body class="container h-screen mx-auto relative">
+<body class="container {{ if url == homepage }}h-screen{{ /if }} mx-auto relative bg-body">
     {{ partial src="layout/main-header" }}
 
     {{ partial src="layout/topical-header" }} 
