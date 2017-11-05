@@ -1,0 +1,6 @@
+taxonomies:
+  categories: true
+fields:
+  description:
+    type: text
+    display: Description

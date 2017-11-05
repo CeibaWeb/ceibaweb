@@ -1,7 +1,7 @@
 routes: [ ]
 collections:
-  blog: '/{slug}'
+  blog: '/blog/{slug}'
 taxonomies:
-  categories: /category/{title}
+  categories: '/category/{title}'
 redirect: [ ]
 vanity: [ ]
